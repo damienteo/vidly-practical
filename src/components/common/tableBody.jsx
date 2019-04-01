@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Like from "./like";
 import _ from "lodash";
 
 class TableBody extends Component {
@@ -9,7 +8,7 @@ class TableBody extends Component {
   };
 
   createKey = (item, column) => {
-    return item._id + (column.path || column.path);
+    return item._id + (column.path || column.key);
   };
 
   render() {
