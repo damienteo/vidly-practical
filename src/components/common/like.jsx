@@ -4,7 +4,11 @@ const Like = props => {
   let classes = "fas fa-heart";
   if (!props.liked) classes = "far fa-heart";
   return (
-    <i class={classes} onClick={props.onClick} style={{ cursor: "pointer" }} />
+    <i
+      className={classes}
+      onClick={props.onClick}
+      style={{ cursor: "pointer" }}
+    />
   );
 };
 
