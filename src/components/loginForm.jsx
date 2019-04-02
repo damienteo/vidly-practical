@@ -32,17 +32,17 @@ class LoginForm extends Component {
   };
 
   validateProperty = ({ name, value }) => {
-    if (input.name === "username") {
-      if (input.value.trim() === "") return "Username is required";
+    if (name === "username") {
+      if (value.trim() === "") return "Username is required";
     }
-    if (input.name === "password") {
-      if (input.value.trim() === "") return "Password is required";
+    if (name === "password") {
+      if (value.trim() === "") return "Password is required";
     }
   };
 
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
-    const error = this.validateProperty(input);
+    const errorMessage = this.validateProperty(input);
 
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
@@ -50,7 +50,7 @@ class LoginForm extends Component {
     const account = { ...this.state.account };
     account[input.name] = input.value;
 
-    this.setState({ account });
+    this.setState({ account, errors });
   };
 
   render() {
